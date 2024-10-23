@@ -1,23 +1,79 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">PD</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión Natillera - Menú</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f0f8ff; /* Fondo suave */
+        }
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Páginas
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="Pagina1.html">Página 1</a>
-                    <a class="dropdown-item" href="Pagina2.html">Página 2</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</nav>
+        /* Ajustes generales para la vista */
+        h1 {
+            margin-top: 10px;
+            font-size: 2rem;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Estilos para la barra de navegación */
+        nav {
+            background-color: #007bff; /* Fondo de la barra de navegación */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px; /* Barra más pequeña */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra menos invasiva */
+        }
+
+            nav a {
+                color: white;
+                text-decoration: none;
+                padding: 10px 20px; /* Tamaño más compacto */
+                font-size: 1rem; /* Fuente más pequeña */
+                margin: 0 10px; /* Espacio reducido */
+                border-radius: 5px;
+                transition: background-color 0.3s, transform 0.2s;
+            }
+
+                nav a:hover {
+                    background-color: #0056b3;
+                    transform: translateY(-2px);
+                }
+
+                nav a:active {
+                    background-color: #003d80;
+                    transform: translateY(0);
+                }
+
+        /* Ajustes para dispositivos móviles */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 5px;
+            }
+
+                nav a {
+                    margin: 5px 0;
+                    padding: 8px 15px;
+                    font-size: 0.9rem; /* Fuente más pequeña en móviles */
+                }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Gestión de Natillera</h1>
+
+    <!-- Menú de navegación más pequeño -->
+    <nav>
+        <a href="Cliente.html">Gestión de Clientes</a>
+        <a href="Ahorro.html">Gestión de Ahorros</a>
+        <a href="Deposito.html">Gestión de Depósitos</a>
+    </nav>
+
+</body>
+</html>
