@@ -163,6 +163,7 @@
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.svg" />
     <Content Include="Paginas\Menu.html" />
     <Content Include="Paginas\Multa.html" />
+    <Content Include="Paginas\ProgesoAhorro.html" />
     <Content Include="Paginas\Scripts\Ahorro.js" />
     <Content Include="Paginas\Cliente.html" />
     <Content Include="Paginas\Scripts\Cliente.js" />
@@ -170,6 +171,7 @@
     <Content Include="Paginas\Scripts\Comunes\Menu.js" />
     <Content Include="Paginas\Scripts\Deposito.js" />
     <Content Include="Paginas\Scripts\Multa.js" />
+    <Content Include="Paginas\Scripts\ProgresoAhorro.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />

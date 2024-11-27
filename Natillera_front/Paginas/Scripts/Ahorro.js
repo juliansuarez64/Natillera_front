@@ -75,7 +75,7 @@ function Eliminar() {
 
 // Función para consultar un ahorro por su ID
 async function Consultar() {
-    let ahorroID = $("#txtAhorroID").val();
+    let ahorroID = $("#txtAhorroID").val().replace(":", "");
     let URL = "http://localhost:50745/api/Ahorros/ConsultarXID?id=" + ahorroID;
     const ahorro = await ConsultarServicio(URL);
     if (ahorro != null) {
