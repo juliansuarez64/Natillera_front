@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ADMINISTRACIÓN DE PROGRESOS DE AHORRO</title>
+    <title>REALIZAR DEPÓSITO</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
@@ -19,74 +19,71 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">ADMINISTRACIÓN DE PROGRESOS DE AHORRO</h3>
+                            <h3 class="card-title">REALIZAR DEPÓSITO</h3>
                         </div>
-                        <form id="frmProgresoAhorros">
+                        <form id="frmDeposito">
                             <div class="card-body">
                                 <div class="card card-gray-dark">
                                     <div class="card-header">
-                                        <h3 class="card-title">DATOS DEL PROGRESO DE AHORRO</h3>
+                                        <h3 class="card-title">REALIZAR DEPÓSITO</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtAhorroID">ID AHORRO</label>
-                                                    <input type="text" class="form-control" id="txtAhorroID" placeholder="ID del ahorro">
+                                                    <label for="txtAhorro">ID DE AHORRO</label>
+                                                    <input type="text" class="form-control" id="txtAhorro" placeholder="ID de ahorro">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtClienteID">ID CLIENTE</label>
-                                                    <input type="text" class="form-control" id="txtClienteID" placeholder="ID del cliente">
+                                                    <label for="txtMonto">MONTO</label>
+                                                    <input type="text" class="form-control" id="txtMontoMensual" placeholder="Monto del depósito">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtNumeroPagos">NÚMERO DE PAGOS</label>
-                                                    <input type="text" class="form-control" id="txtNumeroPagos" placeholder="Número de pagos">
+                                                    <label for="txtFecha">FECHA</label>
+                                                    <input type="date" class="form-control" id="txtFecha" placeholder="Fecha del depósito">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtTotalMonto">MONTO TOTAL</label>
-                                                    <input type="text" class="form-control" id="txtTotalMonto" placeholder="Monto total">
+                                                    <label for="cmbCliente">CLIENTE</label>
+                                                    <select class="form-control" id="cmbCliente">
+                                                        <option value="">Seleccione un cliente</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <button type="button" class="btn btn-primary btn-block" onclick="Insertar()">INSERTAR</button>
+                                                <button type="button" class="btn btn-primary btn-block" id="btnRealizarDeposito">REALIZAR DEPÓSITO</button>
                                             </div>
                                             <div class="col-md-3">
-                                                <button type="button" class="btn btn-warning btn-block" onclick="Actualizar()">ACTUALIZAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <button type="button" class="btn btn-danger btn-block" onclick="Eliminar()">ELIMINAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <button type="button" class="btn btn-secondary btn-block" onclick="Consultar()">CONSULTAR</button>
+                                                <button type="button" class="btn btn-secondary btn-block" onclick="ConsultarAho()">CONSULTAR</button>
                                             </div>
                                         </div>
-                                        <div class="row mt-4">
-                                            <div class="col-md-12">
-                                                <table id="tblProgresoAhorros" class="table table-bordered table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ID Ahorro</th>
-                                                            <th>Cliente</th>
-                                                            <th>Número de Pagos</th>
-                                                            <th>Monto Total</th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
+                                        <div class="row">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <table id="tblAhorros" class="table table-bordered table-striped" style="width:100%;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ID Ahorro</th>
+                                                                <th>Cliente ID</th>
+                                                                <th>Monto Mensual</th>
+                                                                <th>Fecha Inicial</th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
                                             </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div id="dvMensaje"></div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div id="dvMensaje" class="text-danger"></div>
-                                </div>
                         </form>
                     </div>
                 </div>
@@ -101,6 +98,6 @@
     <!-- Archivos comunes -->
     <script src="Scripts/Comunes/Menu.js"></script>
     <script src="Scripts/Comunes/CRUD.js"></script>
-    <script src="Scripts/ProgresoAhorro.js"></script>
+    <script src="Scripts/Deposito.js"></script>
 </body>
 </html>

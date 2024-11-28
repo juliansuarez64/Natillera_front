@@ -55,7 +55,7 @@ function Eliminar() {
 // Función para consultar un cliente por su ID
 async function Consultar() {
     let clienteID = $("#txtClienteID").val();
-    let URL = "http://localhost:50745/api/Clientes/ConsultarXID?id=" + clienteID;
+    let URL = "http://localhost:50745/api/Clientes/ConsultarXID?clienteID=" + clienteID;
     const cliente = await ConsultarServicio(URL);
     if (cliente != null) {
         $("#txtNombre").val(cliente.nombre);

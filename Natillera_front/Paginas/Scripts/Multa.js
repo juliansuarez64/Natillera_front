@@ -1,72 +1,97 @@
-﻿class Multa {
-    constructor(id, clienteID, monto, descripcion, fecha) {
-        this.id = id;
+﻿// Clase para manejar las multas
+class Multa {
+    constructor(multaID, clienteID, descripcion, monto, fecha) {
+        this.multaID = multaID;
         this.clienteID = clienteID;
-        this.monto = monto;
         this.descripcion = descripcion;
+        this.monto = monto;
         this.fecha = fecha;
     }
 }
 
-jQuery(function () {
-    LlenarTabla(); // Llenar la tabla de multas
+// Llenar la tabla al cargar la página
+$(function () {
+    LlenarTablaMultas();
 });
 
-async function LlenarTabla() {
-    try {
-        console.log("Llenando tabla de multas...");
-        await LlenarTablaXServicios("http://localhost:50745/api/Multas/LlenarTablaMultas", "#tblMultas");
-    } catch (error) {
-        console.error("Error al intentar llenar la tabla:", error);
-        $("#dvMensaje").html("Error al llenar la tabla de multas.");
-    }
+// Función para llenar la tabla con datos del backend
+function LlenarTablaMultas() {
+    LlenarTablaXServicios(
+        "http://localhost:50745/api/Multas/LlenarTablaMultas",
+        "#tblMultas"
+    );
 }
 
-// Función genérica para ejecutar comandos de inserción, actualización y eliminación para Multas
+// Función para ejecutar operaciones CRUD
 async function EjecutarComando(Metodo, Funcion) {
     const multa = new Multa(
-        $("#txtId").val(),
+        $("#txtMultaID").val(),
         $("#txtClienteID").val(),
-        $("#txtMonto").val(),
         $("#txtDescripcion").val(),
+        $("#txtMonto").val(),
         $("#txtFecha").val()
     );
-    let URL = "http://localhost:50745/api/Multas/" + Funcion;
+
+    const URL = "http://localhost:50745/api/Multas/" + Funcion;
     await EjecutarServicio(Metodo, URL, multa);
-    LlenarTabla();
+    LlenarTablaMultas();
 }
 
-// Funciones para operaciones CRUD de multas
+// Operaciones CRUD
 function Insertar() {
     EjecutarComando("POST", "Insertar");
 }
 
 function Actualizar() {
     EjecutarComando("PUT", "Actualizar");
-
 }
 
 function Eliminar() {
     EjecutarComando("DELETE", "Eliminar");
 }
-// Función para consultar una multa por su ID
-async function ConsultarMulta() {
-    let multaID = $("#txtId").val(); // Obtener el ID de la multa desde un campo de entrada
-    let URL = "http://localhost:50745/api/Multas/ConsultarXID?id=" + multaID; // Construir la URL para consultar
-    const multa = await ConsultarServicio(URL); // Realizar la consulta usando tu función genérica
 
-    if (multa != null) {
-        // Rellenar los campos del formulario con los datos de la multa
+// Consultar una multa por su ID
+async function Consultar() {
+    const multaID = $("#txtMultaID").val();
+    const URL = "http://localhost:50745/api/Multas/ConsultarXID?id=" + multaID;
+
+    const multa = await ConsultarServicio(URL);
+    if (multa) {
         $("#txtClienteID").val(multa.clienteID);
-        $("#txtMonto").val(multa.monto);
         $("#txtDescripcion").val(multa.descripcion);
+        $("#txtMonto").val(multa.monto);
         $("#txtFecha").val(multa.fecha);
     } else {
-        // Mostrar mensaje de error y limpiar los campos si no se encuentra la multa
-        $("#dvMensaje").html("La multa no está en la base de datos.");
+        $("#dvMensaje").html("La multa no existe.");
         $("#txtClienteID").val("");
-        $("#txtMonto").val("");
         $("#txtDescripcion").val("");
+        $("#txtMonto").val("");
         $("#txtFecha").val("");
     }
 }
+
+// Función para pagar una multa
+async function PagarMulta() {
+    const multaID = $("#txtMultaID").val(); // ID de la multa
+    const montoPago = $("#txtMonto").val(); // Monto a pagar
+
+    if (!multaID || !montoPago) {
+        alert("Por favor, ingrese el ID de la multa y el monto a pagar.");
+        return;
+    }
+
+    const URL = `http://localhost:50745/api/Multas/PagarMulta?multaID=${multaID}&montoPago=${montoPago}`;
+
+    try {
+        const response = await fetch(URL, { method: "POST" });
+
+        const result = await response.text();
+        alert(result); // Mostrar el mensaje devuelto por la API
+
+        // Actualizar la tabla después del pago
+        LlenarTablaMultas();
+    } catch (error) {
+        alert("Error al realizar el pago: " + error);
+    }
+}
+

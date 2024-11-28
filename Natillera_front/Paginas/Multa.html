@@ -38,7 +38,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtClienteID">ID CLIENTE</label>
-                                                    <input type="text" class="form-control" id="txtClienteID" placeholder="ID del cliente asociado">
+                                                    <input type="text" class="form-control" id="txtClienteID" placeholder="ID del cliente">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -50,42 +50,40 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtMonto">MONTO</label>
-                                                    <input type="number" class="form-control" id="txtMonto" placeholder="Monto de la multa">
+                                                    <input type="text" class="form-control" id="txtMonto" placeholder="Monto de la multa">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtFecha">FECHA</label>
-                                                    <input type="date" class="form-control" id="txtFecha">
+                                                    <input type="date" class="form-control" id="txtFecha" placeholder="Fecha de la multa">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <br />
-                                                <button type="button" class="btn-block btn-lg btn-primary" onclick="Insertar()">INSERTAR</button>
+                                                <button type="button" class="btn btn-primary btn-block" onclick="Insertar()">INSERTAR</button>
                                             </div>
                                             <div class="col-md-3">
-                                                <br />
-                                                <button type="button" class="btn-block btn-lg btn-primary" onclick="Actualizar()">ACTUALIZAR</button>
+                                                <button type="button" class="btn btn-warning btn-block" onclick="Actualizar()">ACTUALIZAR</button>
                                             </div>
                                             <div class="col-md-3">
-                                                <br />
-                                                <button type="button" class="btn-block btn-lg btn-primary" onclick="Eliminar()">ELIMINAR</button>
+                                                <button type="button" class="btn btn-danger btn-block" onclick="Eliminar()">ELIMINAR</button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button type="button" class="btn btn-secondary btn-block" onclick="Consultar()">CONSULTAR</button>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-4">
                                             <div class="col-md-12">
-                                                <table id="tblMultas" class="table table-bordered table-striped" style="width:100%;">
+                                                <table id="tblMultas" class="table table-bordered table-striped">
                                                     <thead>
                                                         <tr>
-                                                            <th>ID MULTA</th>
-                                                            <th>ID CLIENTE</th>
-                                                            <th>DESCRIPCIÓN</th>
-                                                            <th>MONTO</th>
-                                                            <th>FECHA</th>
+                                                            <th>ID Multa</th>
+                                                            <th>Cliente</th>
+                                                            <th>Descripción</th>
+                                                            <th>Monto</th>
+                                                            <th>Fecha</th>
                                                         </tr>
                                                     </thead>
                                                 </table>
@@ -94,7 +92,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <div id="dvMensaje" class=""></div>
+                                    <div id="dvMensaje" class="text-danger"></div>
                                 </div>
                         </form>
                     </div>

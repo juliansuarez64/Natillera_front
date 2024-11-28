@@ -163,7 +163,9 @@
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.svg" />
     <Content Include="Paginas\Menu.html" />
     <Content Include="Paginas\Multa.html" />
+    <Content Include="Paginas\PagarMultas.html" />
     <Content Include="Paginas\ProgesoAhorro.html" />
+    <Content Include="Paginas\RealizarDeposito.html" />
     <Content Include="Paginas\Scripts\Ahorro.js" />
     <Content Include="Paginas\Cliente.html" />
     <Content Include="Paginas\Scripts\Cliente.js" />
@@ -288,12 +290,14 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
